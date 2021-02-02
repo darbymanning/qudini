@@ -1,6 +1,10 @@
 <script context="module">
   import model from "$lib/models/kiosk";
-  export const load = model;
+
+  export async function preload(page) {
+    const { props } = await model({ fetch: this.fetch, page });
+    return props;
+  }
 </script>
 
 <script>
@@ -21,6 +25,10 @@
     }
   }
 </script>
+
+<svelte:head>
+  <title>Qudini</title>
+</svelte:head>
 
 {#if state.closed}
   <Closed {...text.closeScreen} />

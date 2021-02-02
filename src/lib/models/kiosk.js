@@ -1,8 +1,8 @@
-import { getData, getSettings } from "$lib/services/kiosk";
-import isOpenResolver from "$lib/resolvers/isOpen";
-import productsResolver from "$lib/resolvers/products";
-import settingsForPostDataResolver from "$lib/resolvers/settingsForPostData";
-import textResolver from "$lib/resolvers/text";
+import { getData, getSettings } from "../services/kiosk";
+import isOpenResolver from "../resolvers/isOpen";
+import productsResolver from "../resolvers/products";
+import settingsForPostDataResolver from "../resolvers/settingsForPostData";
+import textResolver from "../resolvers/text";
 
 export default async function ({ fetch, page }) {
   const kioskId = page.params.kioskId;
