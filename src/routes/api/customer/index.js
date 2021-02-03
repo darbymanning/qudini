@@ -1,18 +1,16 @@
 import fetch from "node-fetch";
 
-export async function post({ body }) {
+async function _post(body) {
   const url = "https://app.qudini.com/api/kiosk/add-customer-to-queue";
   const req = await fetch(url, {
     body: JSON.stringify(body),
     method: "POST",
   });
-  const res = await req.json();
+  return await req.json();
+}
 
-  return {
-    status: 200,
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: res,
-  };
+export async function post(req, res) {
+  const data = await _post(req.body);
+  res.setHeader("Content-Type", "application/json");
+  res.end(JSON.stringify(data));
 }

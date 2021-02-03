@@ -1,7 +1,5 @@
-const APP_URL = import.meta.env.SNOWPACK_PUBLIC_APP_URL;
-
 export async function addToQueue(data) {
-  const url = `${APP_URL}/api/customer`;
+  const url = "/api/customer";
   const req = await fetch(url, {
     body: JSON.stringify(data),
     method: "POST",
@@ -10,19 +8,19 @@ export async function addToQueue(data) {
 }
 
 export async function getCustomerDetails(customerId) {
-  const url = `${APP_URL}/api/customer/${customerId}`;
+  const url = `/api/customer/${customerId}`;
   const req = await fetch(url);
   return await req.json();
 }
 
 export async function getData(fetch, kioskId) {
-  const url = `${APP_URL}/api/kiosk/data/${kioskId}`;
+  const url = `/api/kiosk/data/${kioskId}`;
   const req = await fetch(url);
   return await req.json();
 }
 
 export async function getSettings(fetch, kioskId) {
-  const url = `${APP_URL}/api/kiosk/settings/${kioskId}`;
+  const url = `/api/kiosk/settings/${kioskId}`;
   const req = await fetch(url);
   return await req.json();
 }

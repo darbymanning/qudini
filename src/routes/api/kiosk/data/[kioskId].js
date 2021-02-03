@@ -1,15 +1,13 @@
 import fetch from "node-fetch";
 
-export async function get({ params }) {
-  const url = `https://app.qudini.com/api/kiosk/data/${params.kioskId}?serial=web`;
+async function _get(kioskId) {
+  const url = `https://app.qudini.com/api/kiosk/data/${kioskId}?serial=web`;
   const req = await fetch(url);
-  const res = await req.json();
+  return await req.json();
+}
 
-  return {
-    status: 200,
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: res,
-  };
+export async function get(req, res) {
+  const data = await _get(req.params.kioskId);
+  res.setHeader("Content-Type", "application/json");
+  res.end(JSON.stringify(data));
 }
