@@ -21,8 +21,9 @@
   .radio-item {
     --radio-color: var(--grey-3);
 
-    display: flex;
+    align-items: center;
     cursor: pointer;
+    display: flex;
 
     :global(+ #{&}) {
       margin-top: 1em;
@@ -30,26 +31,26 @@
   }
 
   .radio-icon {
-    display: flex;
     border: 1px solid var(--radio-color);
     border-radius: 50%;
-    width: 1em;
+    display: flex;
     height: 1em;
-    transition: border-color 0.15s ease;
     margin-right: 0.5em;
+    transition: border-color 0.15s ease;
+    width: 1em;
 
     &::after {
+      background: var(--radio-color);
+      border-radius: 50%;
       content: "";
       display: block;
-      width: 0.5em;
       height: 0.5em;
-      border-radius: 50%;
+      left: 50%;
       position: absolute;
       top: 50%;
-      left: 50%;
       transform: translate(-50%, -50%) scale(0);
-      background: var(--radio-color);
       transition: transform 0.15s ease;
+      width: 0.5em;
     }
   }
 

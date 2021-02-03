@@ -1,18 +1,22 @@
 {
   "name": "qudini",
   "description": "qudini",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
-    "sapper": "sapper dev",
-    "build": "sapper build --legacy",
-    "export": "sapper export --legacy",
-    "start": "node __sapper__/build",
-    "reload": "touch src/routes/_layout.svelte",
-    "scss": "sass --no-source-map -s compressed ./static/",
     "autoprefixer": "postcss -u autoprefixer -r ./static/global.css --no-map",
-    "build:css": "run-s 'scss' 'autoprefixer' 'reload'",
-    "watch:css": "onchange './static/**/*.scss' -- npm run build:css",
-    "dev": "run-p 'sapper' 'watch:css'"
+    "build": "yarn build:css && sapper build --legacy",
+    "build:css": "run-s stylelint:write scss autoprefixer reload",
+    "dev": "run-p 'sapper' 'watch:css'",
+    "export": "sapper export --legacy",
+    "reload": "touch src/routes/_layout.svelte",
+    "sapper": "sapper dev",
+    "scss": "sass --no-source-map --load-path=node_modules -s compressed ./src/global.scss ./static/global.css",
+    "start": "node __sapper__/build",
+    "prettier:check": "prettier --c --plugin-search-dir=. 'src/**/*.js' 'src/**/*.svelte'",
+    "prettier:write": "prettier --write --plugin-search-dir=. 'src/**/*.js' 'src/**/*.svelte'",
+    "stylelint:check": "stylelint 'src/**/*.svelte' 'src/**/*.scss'",
+    "stylelint:write": "stylelint 'src/**/*.svelte' 'src/**/*.scss' --fix",
+    "watch:css": "onchange './src/**/*.scss' -- yarn build:css"
   },
   "dependencies": {
     "compression": "1.7.4",
@@ -49,7 +53,10 @@
     "rollup-plugin-terser": "7.0.2",
     "sapper": "0.28.10",
     "sass": "^1.30.0",
+    "stylelint": "^13.9.0",
+    "stylelint-order": "^4.1.0",
     "svelte": "^3.31.0",
-    "svelte-preprocess": "^4.6.1"
+    "svelte-preprocess": "^4.6.1",
+    "yarn": "^1.22.10"
   }
 }
