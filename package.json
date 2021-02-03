@@ -1,29 +1,12 @@
 {
-  "name": "qudini",
-  "description": "qudini",
-  "version": "0.0.2",
-  "scripts": {
-    "autoprefixer": "postcss -u autoprefixer -r ./static/global.css --no-map",
-    "build": "yarn build:css && sapper build --legacy",
-    "build:css": "run-s stylelint:write scss autoprefixer reload",
-    "dev": "run-p 'sapper' 'watch:css'",
-    "export": "sapper export --legacy",
-    "reload": "touch src/routes/_layout.svelte",
-    "sapper": "sapper dev",
-    "scss": "sass --no-source-map --load-path=node_modules -s compressed ./src/global.scss ./static/global.css",
-    "start": "node __sapper__/build",
-    "prettier:check": "prettier --c --plugin-search-dir=. 'src/**/*.js' 'src/**/*.svelte'",
-    "prettier:write": "prettier --write --plugin-search-dir=. 'src/**/*.js' 'src/**/*.svelte'",
-    "stylelint:check": "stylelint 'src/**/*.svelte' 'src/**/*.scss'",
-    "stylelint:write": "stylelint 'src/**/*.svelte' 'src/**/*.scss' --fix",
-    "watch:css": "onchange './src/**/*.scss' -- yarn build:css"
-  },
+  "bugs": "https://github.com/darbymanning/qudini/issues",
   "dependencies": {
     "compression": "1.7.4",
     "node-fetch": "^2.6.1",
     "polka": "0.5.2",
     "sirv": "1.0.10"
   },
+  "description": "Custom front-end for Qudini Kiosk",
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/plugin-syntax-dynamic-import": "7.8.3",
@@ -58,5 +41,25 @@
     "svelte": "^3.31.0",
     "svelte-preprocess": "^4.6.1",
     "yarn": "^1.22.10"
-  }
+  },
+  "homepage": "https://qudini.app",
+  "license": "MIT",
+  "name": "qudini",
+  "scripts": {
+    "autoprefixer": "postcss -u autoprefixer -r ./static/global.css --no-map",
+    "build": "yarn build:css && sapper build --legacy",
+    "build:css": "run-s stylelint:write scss autoprefixer reload",
+    "dev": "yarn build:css && run-p 'sapper' 'watch:css'",
+    "export": "sapper export --legacy",
+    "prettier:check": "prettier --c --plugin-search-dir=. 'src/**/*.js' 'src/**/*.svelte'",
+    "prettier:write": "prettier --write --plugin-search-dir=. 'src/**/*.js' 'src/**/*.svelte'",
+    "reload": "touch src/routes/_layout.svelte",
+    "sapper": "sapper dev",
+    "scss": "sass --no-source-map --load-path=node_modules -s compressed ./src/global.scss ./static/global.css",
+    "start": "node __sapper__/build",
+    "stylelint:check": "stylelint 'src/**/*.svelte' 'src/**/*.scss'",
+    "stylelint:write": "stylelint 'src/**/*.svelte' 'src/**/*.scss' --fix",
+    "watch:css": "onchange './src/**/*.scss' -- yarn build:css"
+  },
+  "version": "0.0.3"
 }
