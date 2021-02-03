@@ -9,9 +9,7 @@
 
 <script>
   import Cookies from "js-cookie";
-  import Closed from "$components/Closed.svelte";
-  import AddToQueueForm from "$components/AddToQueueForm.svelte";
-  import InQueue from "$components/InQueue.svelte";
+  import { AddToQueueForm, Closed, Header, InQueue } from "$components";
 
   export let state;
   export let products;
@@ -29,6 +27,8 @@
 <svelte:head>
   <title>Qudini</title>
 </svelte:head>
+
+<Header />
 
 {#if state.closed}
   <Closed {...text.closeScreen} />
