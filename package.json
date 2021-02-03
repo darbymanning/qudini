@@ -1,7 +1,7 @@
 {
   "name": "qudini",
   "description": "qudini",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "autoprefixer": "postcss -u autoprefixer -r ./static/global.css --no-map",
     "build": "yarn build:css && sapper build --legacy",
