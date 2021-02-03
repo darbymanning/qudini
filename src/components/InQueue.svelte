@@ -22,12 +22,12 @@
 </script>
 
 {#if position}
-  <h1>{header.text.withMobile} {firstName}</h1>
+  <h1 class="u-h1">{header.text.withMobile} {firstName}</h1>
   <p>{top.text.withMobile}</p>
   <strong class="position">{position}</strong>
   <p>{bottom.text.withMobile}</p>
 {:else}
-  <h1>Thank you for waiting {firstName}</h1>
+  <h1 class="u-h1">Thank you for waiting {firstName}</h1>
   <p>
     We're ready for you now. Please make your way to the meeting point for your
     child's room.

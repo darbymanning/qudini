@@ -35,10 +35,16 @@
 {/if}
 
 {#if state.open}
-  <h1>{text.welcomeScreen.header}</h1>
+  <h1 class="header u-h1">{text.welcomeScreen.header}</h1>
   <AddToQueueForm bind:state {products} {settingsForPostData} {text} />
 {/if}
 
 {#if state.inQueue}
   <InQueue {...state} {...text.confirmationScreen} />
 {/if}
+
+<style lang="scss">
+  .header {
+    max-width: 15ch;
+  }
+</style>

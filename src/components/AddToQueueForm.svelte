@@ -74,6 +74,14 @@
   form {
     display: grid;
     gap: calc(var(--gutter) * 1.5);
-    justify-items: flex-start;
+    margin-bottom: var(--gutter);
+    margin-top: var(--gutter);
+    text-align: start;
+    width: clamp(25rem, 80vw, 50rem);
+
+    @media (min-width: 37.5em) {
+      border: 0.1rem solid var(--grey-2);
+      padding: var(--gutter);
+    }
   }
 </style>

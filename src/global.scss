@@ -1,7 +1,7 @@
 @import "@neuekit/reboot";
 
 :root {
-  --gutter: 2rem;
+  --gutter: clamp(2rem, 3vw, 2.5rem);
 
   --form-height: 4rem;
 
@@ -49,7 +49,17 @@ h3,
 h4,
 h5,
 h6 {
+  font: inherit;
   letter-spacing: -0.04em;
+  line-height: 1.4;
+}
+
+::selection {
+  background: aquamarine;
+}
+
+.u-h1 {
+  font-size: clamp(2rem, 3.5vw, 4rem);
 }
 
 main {
@@ -64,7 +74,7 @@ main {
 
 fieldset {
   border: inherit;
-  margin: inherit;
+  margin: 0;
   padding: inherit;
 }
 
@@ -85,7 +95,6 @@ fieldset {
 
   display: grid;
   gap: 0.4em;
-  justify-items: flex-start;
 }
 
 .input-item:focus-within {
@@ -112,4 +121,5 @@ fieldset {
   appearance: none;
   border: none;
   outline: none;
+  width: 100%;
 }
