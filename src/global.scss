@@ -1,3 +1,5 @@
+@import "@neuekit/reboot";
+
 :root {
   --gutter: 2rem;
 
@@ -60,16 +62,22 @@ main {
   text-align: center;
 }
 
+fieldset {
+  border: inherit;
+  margin: inherit;
+  padding: inherit;
+}
+
 .u-screenReaderOnly {
-  position: absolute;
-  width: 1px;
+  border-width: 0;
+  clip: rect(0, 0, 0, 0);
   height: 1px;
-  padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  padding: 0;
+  position: absolute;
   white-space: nowrap;
-  border-width: 0;
+  width: 1px;
 }
 
 .input-item {
@@ -85,19 +93,19 @@ main {
 }
 
 .u-signPost {
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
   font-size: 0.7em;
   font-weight: inherit;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .input-wrapper {
-  border-radius: 0.5rem;
   border: 0.1rem solid var(--border-color);
-  transition: border 0.2s ease 0s, color 0.2s ease 0s;
-  padding: 0.2em;
+  border-radius: 0.5rem;
   display: flex;
   height: var(--form-height);
+  padding: 0.2em;
+  transition: border 0.2s ease 0s, color 0.2s ease 0s;
 }
 
 .input-el {

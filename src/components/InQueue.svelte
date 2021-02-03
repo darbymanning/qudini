@@ -36,13 +36,13 @@
 
 <style lang="scss">
   .position {
-    font-size: 2em;
-    width: 2em;
-    height: 2em;
-    display: inline-flex;
-    border-radius: 50%;
-    border: 0.2rem solid;
-    justify-content: center;
     align-items: center;
+    border: 0.2rem solid;
+    border-radius: 50%;
+    display: inline-flex;
+    font-size: 2em;
+    height: 2em;
+    justify-content: center;
+    width: 2em;
   }
 </style>

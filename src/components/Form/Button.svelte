@@ -7,17 +7,17 @@
 <style lang="scss">
   button {
     appearance: none;
-    border: 0.1rem solid;
-    justify-self: stretch;
-    height: var(--form-height);
     background: var(--black);
+    border: 0.1rem solid;
     color: var(--white);
+    height: var(--form-height);
+    justify-self: stretch;
   }
 
   [disabled] {
     background: var(--grey-1);
-    color: var(--grey-3);
     border-color: var(--grey-2);
+    color: var(--grey-3);
     cursor: not-allowed;
   }
 </style>

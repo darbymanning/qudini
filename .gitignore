@@ -7,3 +7,4 @@ pnpm-debug.log
 .env
 .vscode
 .vercel
+static/global.css
