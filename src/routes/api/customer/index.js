@@ -5,6 +5,9 @@ async function _post(body) {
   const req = await fetch(url, {
     body: JSON.stringify(body),
     method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
   });
   return await req.json();
 }
