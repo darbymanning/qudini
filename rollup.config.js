@@ -2,6 +2,7 @@
 import alias from "@rollup/plugin-alias";
 import babel from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs";
+import json from "@rollup/plugin-json";
 import replace from "@rollup/plugin-replace";
 import resolve from "@rollup/plugin-node-resolve";
 import url from "@rollup/plugin-url";
@@ -111,6 +112,7 @@ export default {
       customResolver,
       replace({ ...replaceconfig, "process.browser": false }),
       resolve({ dedupe: ["svelte"] }),
+      json(),
       svelte({
         compilerOptions: {
           dev,

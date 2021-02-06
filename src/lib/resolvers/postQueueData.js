@@ -8,7 +8,7 @@ export default function (formData, products, settingsForPostData) {
 
   const { queueId } = products.find(({ id }) => id === formData.productId);
 
-  formData = {
+  return {
     ...settingsForPostData,
     ...formData,
     emailAddress: "",

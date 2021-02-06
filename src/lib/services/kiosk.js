@@ -3,6 +3,9 @@ export async function addToQueue(data) {
   const req = await fetch(url, {
     body: JSON.stringify(data),
     method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
   });
   return await req.json();
 }
