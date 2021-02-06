@@ -63,5 +63,5 @@
     "stylelint:write": "stylelint 'src/**/*.svelte' 'src/**/*.scss' --fix",
     "watch:css": "onchange './src/**/*.scss' -- yarn build:css"
   },
-  "version": "0.0.3"
+  "version": "0.0.4"
 }
