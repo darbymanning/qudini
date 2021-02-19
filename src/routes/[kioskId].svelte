@@ -8,7 +8,7 @@
 </script>
 
 <script>
-  import Cookies from "js-cookie";
+  import { cookies } from "$lib/utils";
   import { AddToQueueForm, Closed, Header, InQueue } from "$components";
 
   export let state;
@@ -17,9 +17,10 @@
   export let settingsForPostData;
 
   if (state.open) {
-    const cookieData = Cookies.get("currentCustomer");
-    if (cookieData) {
-      state = JSON.parse(cookieData);
+    const currentCustomer = cookies.getCurrentCustomer();
+
+    if (currentCustomer) {
+      state = currentCustomer;
     }
   }
 </script>
