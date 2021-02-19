@@ -1,6 +1,8 @@
 <script>
   import { getCustomerDetails } from "$lib/services/kiosk";
   import getPositionResolver from "$lib/resolvers/getPosition";
+  import currentCustomerResolver from "$lib/resolvers/currentCustomer";
+  import { cookies } from "$lib/utils";
 
   export let header;
   export let top;
@@ -12,8 +14,11 @@
   let interval = setInterval(getPosition, 3000);
 
   async function getPosition() {
-    const req = await getCustomerDetails(customerId);
-    position = getPositionResolver(req);
+    const res = await getCustomerDetails(customerId);
+    position = getPositionResolver(res);
+
+    const resolvedCurrentCustomer = currentCustomerResolver(res);
+    cookies.setCurrentCustomer(resolvedCurrentCustomer);
 
     if (!position) {
       clearInterval(interval);
