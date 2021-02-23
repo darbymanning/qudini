@@ -1,4 +1,4 @@
-export default function ({ customerDetails }) {
-  const inQueue = customerDetails.customerInQueue;
+export default function (data) {
+  const inQueue = data.customerDetails.customerInQueue;
   return inQueue ? inQueue.currentPosition : null;
 }
