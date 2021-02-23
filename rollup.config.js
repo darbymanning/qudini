@@ -84,16 +84,6 @@ export default {
         babel({
           exclude: ["node_modules/@babel/**"],
           extensions: [".js", ".mjs", ".html", ".svelte"],
-          plugins: [
-            "@babel/plugin-syntax-dynamic-import",
-            [
-              "@babel/plugin-transform-runtime",
-              {
-                useESModules: true,
-              },
-            ],
-          ],
-          presets: [["@babel/preset-env"]],
           babelHelpers: "runtime",
         }),
 
