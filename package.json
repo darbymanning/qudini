@@ -53,8 +53,8 @@
   "name": "qudini",
   "scripts": {
     "autoprefixer": "postcss -u autoprefixer -r ./static/global.css --no-map",
-    "build": "yarn build:css && sapper build --legacy",
-    "build:css": "run-s stylelint:write scss autoprefixer reload",
+    "build": "run-s 'build:css' 'prettier:check' 'stylelint:check' 'test' && sapper build --legacy",
+    "build:css": "run-s 'stylelint:write' 'scss' 'autoprefixer' 'reload'",
     "dev": "yarn build:css && run-p 'sapper' 'watch:css'",
     "export": "sapper export --legacy",
     "prettier:check": "prettier --c --plugin-search-dir=. 'src/**/*.js' 'src/**/*.svelte'",
