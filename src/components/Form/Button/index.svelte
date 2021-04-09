@@ -1,5 +1,5 @@
 <script>
-  export let disabled;
+  export let disabled = false;
 </script>
 
 <button type="submit" {disabled}><slot /></button>

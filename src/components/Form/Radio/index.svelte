@@ -1,17 +1,18 @@
 <script>
   export let group = "";
-  export let name;
-  export let value;
+  export let name = "";
+  export let value = false;
 </script>
 
 <label class="radio-item" for={value}>
   <input
     bind:group
     class="radio-el u-screenReaderOnly"
+    data-testid="radio"
     id={value}
-    {value}
     {name}
     type="radio"
+    {value}
   />
   <span aria-hidden="true" class="radio-icon" />
   <slot />
