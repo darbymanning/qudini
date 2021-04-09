@@ -1,6 +1,8 @@
 module.exports = {
-  moduleDirectories: ["node_modules", "."],
   moduleFileExtensions: ["js", "svelte"],
+  moduleNameMapper: {
+    "^\\$(.*)$": "<rootDir>/src/$1",
+  },
   resetMocks: true,
   setupFilesAfterEnv: [
     "<rootDir>/jest.setup.js",
@@ -12,7 +14,7 @@ module.exports = {
     "<rootDir>/src/node_modules/",
   ],
   transform: {
-    "^.+\\.js$": "babel-jest",
-    "^.+\\.svelte$": "svelte-jester",
+    "^.+\\.js$": ["babel-jest"],
+    "^.+\\.svelte$": ["svelte-jester", { preprocess: true }],
   },
 };

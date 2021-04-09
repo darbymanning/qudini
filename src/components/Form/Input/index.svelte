@@ -1,8 +1,8 @@
 <script>
-  export let pattern = null,
-    name = "",
-    required = false,
-    value = "";
+  export let pattern = null;
+  export let name = "";
+  export let required = false;
+  export let value = "";
 </script>
 
 <label class="input-item" for={name}>
@@ -11,13 +11,14 @@
   </span>
   <div class="input-wrapper">
     <input
+      bind:value
       class="input-el"
+      data-testid="input"
+      id={name}
       {pattern}
+      {name}
       {required}
       type="text"
-      id={name}
-      bind:value
-      {name}
     />
   </div>
 </label>

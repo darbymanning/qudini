@@ -10,15 +10,14 @@
   export let text;
   export let settingsForPostData;
   export let state;
+  export let isValid = false;
 
   let form;
-  let isValid;
   let formData = cookies.getFormDataFromCookies();
 
   $: cookies.setFormData(formData);
 
-  async function handleSubmit(event) {
-    event.preventDefault();
+  async function handleSubmit() {
     const data = postQueueDataResolver(formData, products, settingsForPostData);
     const res = await addToQueue(data);
     const resolvedQueueData = postQueueResponseResolver(res);
@@ -38,7 +37,11 @@
   onMount(checkValidity);
 </script>
 
-<form on:submit={handleSubmit} on:input={handleInput} bind:this={form}>
+<form
+  on:submit|preventDefault={handleSubmit}
+  on:input={handleInput}
+  bind:this={form}
+>
   <fieldset>
     <h2 class="u-signPost">{text.serviceScreen.header}</h2>
     {#each products as { name, id }}

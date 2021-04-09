@@ -29,7 +29,7 @@
 {#if position}
   <h1 class="u-h1">{header.text.withMobile} {firstName}</h1>
   <p>{top.text.withMobile}</p>
-  <strong class="position">{position}</strong>
+  <strong class="position" data-testid="position">{position}</strong>
   <p>{bottom.text.withMobile}</p>
 {:else}
   <h1 class="u-h1">Thank you for waiting {firstName}</h1>

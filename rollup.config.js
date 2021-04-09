@@ -10,15 +10,16 @@ import svelte from "rollup-plugin-svelte";
 import { terser } from "rollup-plugin-terser";
 
 /* Packages */
-import autoprefixer from "autoprefixer";
 import config from "sapper/config/rollup.js";
 import "dotenv/config";
 import path from "path";
 import pkg from "./package.json";
-import { scss, postcss } from "svelte-preprocess";
+import sveltePreprocess from "svelte-preprocess";
+const preprocessOptions = require("./svelte.config").preprocessOptions;
 
 /* Assignments */
 const mode = process.env.NODE_ENV;
+const production = !process.env.ROLLUP_WATCH;
 const dev = mode === "development";
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
@@ -46,10 +47,10 @@ const aliasconfig = {
   ],
 };
 
-const preprocess = [
-  scss({ sourceMap: false }),
-  postcss({ plugins: [autoprefixer] }),
-];
+const preprocess = sveltePreprocess({
+  ...preprocessOptions,
+  sourceMap: !production,
+});
 
 const replaceconfig = {
   "process.browser": true,

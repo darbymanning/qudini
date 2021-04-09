@@ -11,13 +11,14 @@
   </span>
   <div class="input-wrapper">
     <input
+      bind:value
       class="input-el"
+      data-testid="tel"
+      id={name}
+      {name}
       {pattern}
       {required}
       type="tel"
-      id={name}
-      bind:value
-      {name}
     />
   </div>
 </label>

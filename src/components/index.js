@@ -1,4 +1,4 @@
-export { default as AddToQueueForm } from "./AddToQueueForm.svelte";
-export { default as Closed } from "./Closed.svelte";
-export { default as Header } from "./Header.svelte";
-export { default as InQueue } from "./InQueue.svelte";
+export { default as AddToQueueForm } from "./AddToQueueForm";
+export { default as Closed } from "./Closed";
+export { default as Header } from "./Header";
+export { default as InQueue } from "./InQueue";
