@@ -1,4 +1,5 @@
 <svg class="logo" viewBox="0 0 270 270" xmlns="http://www.w3.org/2000/svg">
+  <title>Qudini Logo</title>
   <path d="m67.6 67.7v33.6l33.6 33.7-33.6 33.7v33.6l67.3-67.3z" />
   <path d="m135.1 67.7v33.6l33.7 33.7-33.7 33.7v33.6l67.3-67.3z" />
   <path d="m202.7 67.7v33.6l33.6 33.7-33.6 33.7v33.6l67.3-67.3z" />
