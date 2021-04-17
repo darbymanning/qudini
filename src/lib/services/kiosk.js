@@ -2,7 +2,7 @@ import kiosk from "../stubs/kiosk";
 import { isDev } from "../utils";
 
 export async function addToQueue(data) {
-  if (isDev) kiosk.addToQueue;
+  if (isDev) return kiosk.addToQueue;
 
   const url = "/api/customer";
   const req = await fetch(url, {
@@ -32,7 +32,7 @@ export async function getCustomerDetails(customerId) {
 }
 
 export async function getData(fetch, kioskId) {
-  if (isDev) kiosk.getData;
+  if (isDev) return kiosk.getData;
 
   const url = `/api/kiosk/data/${kioskId}`;
   const req = await fetch(url);
@@ -40,7 +40,7 @@ export async function getData(fetch, kioskId) {
 }
 
 export async function getSettings(fetch, kioskId) {
-  if (isDev) kiosk.getSettings;
+  if (isDev) return kiosk.getSettings;
 
   const url = `/api/kiosk/settings/${kioskId}`;
   const req = await fetch(url);
