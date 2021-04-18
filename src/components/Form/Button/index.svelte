@@ -1,8 +1,9 @@
 <script>
   export let disabled = false;
+  export let type = "submit";
 </script>
 
-<button type="submit" {disabled}><slot /></button>
+<button {type} {disabled} on:click><slot /></button>
 
 <style lang="scss">
   button {
@@ -12,6 +13,7 @@
     color: var(--white);
     height: var(--form-height);
     justify-self: stretch;
+    padding: 0 1.5ch;
   }
 
   [disabled] {

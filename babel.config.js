@@ -2,7 +2,7 @@ module.exports = function (api) {
   api.cache(true);
 
   return {
-    exclude: ["node_modules/@babel/**"],
+    exclude: process.env.NODE_ENV === "test" ? [] : ["node_modules/@babel/**"],
     plugins: [
       "@babel/plugin-syntax-dynamic-import",
       [
