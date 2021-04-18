@@ -1,5 +1,6 @@
 module.exports = {
-  moduleFileExtensions: ["js", "svelte"],
+  moduleFileExtensions: ["js", "mjs", "svelte"],
+  moduleDirectories: ["node_modules", "src/node_modules"],
   moduleNameMapper: {
     "^\\$(.*)$": "<rootDir>/src/$1",
   },
@@ -11,10 +12,12 @@ module.exports = {
   testPathIgnorePatterns: [
     "<rootDir>/__sapper__/",
     "<rootDir>/node_modules/",
-    "<rootDir>/src/node_modules/",
+    "<rootDir>/src/node_modules/(?!@sapper)",
   ],
   transform: {
-    "^.+\\.js$": ["babel-jest"],
+    "^.+\\.js$": "babel-jest",
+    "^.+\\.mjs$": "babel-jest",
     "^.+\\.svelte$": ["svelte-jester", { preprocess: true }],
   },
+  transformIgnorePatterns: ["src/node_modules/(?!@sapper)"],
 };
