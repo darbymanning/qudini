@@ -11,10 +11,11 @@
   import { cookies } from "$lib/utils";
   import { AddToQueueForm, Closed, Header, InQueue } from "$components";
 
-  export let state;
+  export let kioskId;
   export let products;
-  export let text;
+  export let state;
   export let settingsForPostData;
+  export let text;
 
   if (state.open) {
     const currentCustomer = cookies.getCurrentCustomer();
@@ -41,7 +42,7 @@
 {/if}
 
 {#if state.inQueue}
-  <InQueue {...state} {...text.confirmationScreen} />
+  <InQueue bind:state {...state} {...text.confirmationScreen} {kioskId} />
 {/if}
 
 <style lang="scss">
