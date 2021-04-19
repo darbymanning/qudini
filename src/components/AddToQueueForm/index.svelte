@@ -11,6 +11,7 @@
   export let settingsForPostData;
   export let state;
   export let isValid = false;
+  export let showJoinAgain;
 
   let form;
   let formData = cookies.getFormDataFromCookies();
@@ -22,7 +23,10 @@
     const res = await addToQueue(data);
     const resolvedQueueData = postQueueResponseResolver(res);
 
+    cookies.setPostQueueData(data);
     cookies.setCurrentCustomer(resolvedQueueData);
+    cookies.setHasCheckedIn(true);
+    showJoinAgain = true;
     state = postQueueResponseResolver(res);
   }
 

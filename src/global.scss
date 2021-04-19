@@ -62,6 +62,14 @@ h6 {
   font-size: clamp(2rem, 3.5vw, 4rem);
 }
 
+.u-h2 {
+  font-size: clamp(1.9rem, 3.2vw, 3rem);
+}
+
+.u-h3 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
 main {
   align-items: center;
   display: flex;
@@ -76,6 +84,10 @@ fieldset {
   border: inherit;
   margin: 0;
   padding: inherit;
+}
+
+button {
+  min-height: var(--form-height);
 }
 
 .u-screenReaderOnly {

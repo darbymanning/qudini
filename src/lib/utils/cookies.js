@@ -12,6 +12,18 @@ export function getFormDataFromCookies(formData) {
   }
 }
 
+export function getHasCheckedIn() {
+  return Cookies.get("hasCheckedIn");
+}
+
+export function removeHasCheckedIn() {
+  return Cookies.remove("hasCheckedIn");
+}
+
+export function setHasCheckedIn() {
+  Cookies.set("hasCheckedIn", true, { expires: 365 * 10 });
+}
+
 export function setCurrentCustomer(data) {
   const in30Minutes = 1 / 48;
 
@@ -31,4 +43,12 @@ export function getCurrentCustomer() {
 export function setFormData(formData) {
   formData = getFormDataFromCookies(formData);
   Cookies.set("formData", formData, { expires: 365 * 10 });
+}
+
+export function setPostQueueData(postQueueData) {
+  Cookies.set("postQueueData", postQueueData, { expires: 365 * 10 });
+}
+
+export function getPostQueueData(postQueueData) {
+  Cookies.get("postQueueData");
 }
