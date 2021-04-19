@@ -9,13 +9,20 @@
 
 <script>
   import { cookies } from "$lib/utils";
-  import { AddToQueueForm, Closed, Header, InQueue } from "$components";
+  import {
+    AddToQueueForm,
+    Closed,
+    Header,
+    InQueue,
+    JoinQueueAgain,
+  } from "$components";
 
   export let kioskId;
   export let products;
   export let state;
   export let settingsForPostData;
   export let text;
+  export let showJoinAgain = cookies.getHasCheckedIn();
 
   if (state.open) {
     const currentCustomer = cookies.getCurrentCustomer();
@@ -37,8 +44,18 @@
 {/if}
 
 {#if state.open}
-  <h1 class="header u-h1">{text.welcomeScreen.header}</h1>
-  <AddToQueueForm bind:state {products} {settingsForPostData} {text} />
+  {#if showJoinAgain}
+    <JoinQueueAgain bind:state {kioskId} bind:showJoinAgain />
+  {:else}
+    <h1 class="header u-h1">{text.welcomeScreen.header}</h1>
+    <AddToQueueForm
+      bind:state
+      {products}
+      {settingsForPostData}
+      {text}
+      bind:showJoinAgain
+    />
+  {/if}
 {/if}
 
 {#if state.inQueue}
