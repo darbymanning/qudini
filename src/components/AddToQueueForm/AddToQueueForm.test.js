@@ -11,6 +11,8 @@ jest.mock("$lib/resolvers/postQueueResponse");
 jest.mock("$lib/utils/cookies", () => ({
   getFormDataFromCookies: () => ({}),
   setFormData: jest.fn(),
+  setHasCheckedIn: jest.fn(),
+  setPostQueueData: jest.fn(),
   setCurrentCustomer: jest.fn(),
 }));
 
@@ -20,6 +22,8 @@ describe("AddToQueueForm", () => {
       products: [],
       settingsForPostData: {},
       state: {},
+      showJoinAgain: false,
+      showJoinAgain: false,
       text: {
         customerScreen: { placeholder: {} },
         serviceScreen: { header: "Custom Title" },
@@ -34,6 +38,7 @@ describe("AddToQueueForm", () => {
       products: [],
       settingsForPostData: {},
       state: {},
+      showJoinAgain: false,
       text: {
         customerScreen: { placeholder: { name: "Custom Name" } },
         serviceScreen: {},
@@ -48,6 +53,7 @@ describe("AddToQueueForm", () => {
       products: [],
       settingsForPostData: {},
       state: {},
+      showJoinAgain: false,
       text: {
         customerScreen: { placeholder: { orderNumber: "Custom Order Number" } },
         serviceScreen: {},
@@ -62,6 +68,7 @@ describe("AddToQueueForm", () => {
       products: [],
       settingsForPostData: {},
       state: {},
+      showJoinAgain: false,
       text: {
         customerScreen: {
           placeholder: { mobileNumber: "Custom Mobile Number" },
@@ -81,6 +88,7 @@ describe("AddToQueueForm", () => {
       ],
       settingsForPostData: {},
       state: {},
+      showJoinAgain: false,
       text: { customerScreen: { placeholder: {} }, serviceScreen: {} },
     };
     const { getByText } = render(AddToQueueForm, data);
@@ -96,6 +104,7 @@ describe("AddToQueueForm", () => {
       ],
       settingsForPostData: {},
       state: {},
+      showJoinAgain: false,
       text: { customerScreen: { placeholder: {} }, serviceScreen: {} },
     };
 
@@ -144,12 +153,16 @@ describe("AddToQueueForm", () => {
       );
     });
 
-    it("calls cookies.setCurrentCustomer()", async () => {
-      await waitFor(() =>
+    it("calls cookies functions", async () => {
+      await waitFor(() => {
         expect(cookies.setCurrentCustomer).toBeCalledWith(
           "postQueueResponseResolverMockResponse"
-        )
-      );
+        );
+        expect(cookies.setPostQueueData).toBeCalledWith(
+          "postQueueDataResolverMockResponse"
+        );
+        expect(cookies.setHasCheckedIn).toBeCalledWith(true);
+      });
     });
   });
 });
