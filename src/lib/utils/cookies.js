@@ -49,6 +49,6 @@ export function setPostQueueData(postQueueData) {
   Cookies.set("postQueueData", postQueueData, { expires: 365 * 10 });
 }
 
-export function getPostQueueData(postQueueData) {
-  Cookies.get("postQueueData");
+export function getPostQueueData() {
+  return JSON.parse(Cookies.get("postQueueData"));
 }
