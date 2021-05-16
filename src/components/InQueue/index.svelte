@@ -7,9 +7,7 @@
   import { getData } from "$lib/services/kiosk";
   import { Button } from "$components/Form";
 
-  export let header;
-  export let top;
-  export let bottom;
+  export let inQueue;
   export let customerId;
   export let position;
   export let firstName;
@@ -50,10 +48,10 @@
 <svelte:window on:focus={handleFocus} />
 
 {#if position}
-  <h1 class="u-h1">{header.text.withMobile} {firstName}</h1>
-  <p>{top.text.withMobile}</p>
+  <h1 class="u-h1">{inQueue.header} {firstName}</h1>
+  <p>{inQueue.currentPosition}</p>
   <strong class="position" data-testid="position">{position}</strong>
-  <p>{bottom.text.withMobile}</p>
+  <p>{inQueue.weWillContactYou}</p>
 {:else}
   <h1 class="u-h1">Thank you for waiting {firstName}</h1>
   <p>

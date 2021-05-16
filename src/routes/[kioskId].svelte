@@ -61,7 +61,7 @@
 {/if}
 
 {#if state.inQueue}
-  <InQueue bind:state {...state} {...text.confirmationScreen} {kioskId} />
+  <InQueue bind:state {...state} {...text} {kioskId} />
 {/if}
 
 <Footer {...base.logo} />
