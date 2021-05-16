@@ -15,9 +15,11 @@ describe("InQueue", () => {
     firstName: "Billy",
     customerId: 123,
     position: "Position 5",
-    header: { text: { withMobile: "Thanks" } },
-    top: { text: { withMobile: "Position:" } },
-    bottom: { text: { withMobile: "Please wait..." } },
+    inQueue: {
+      header: "Thanks",
+      currentPosition: "Position:",
+      weWillContactYou: "Please wait...",
+    },
     state: { open: true },
     kioskId: 456,
   };
