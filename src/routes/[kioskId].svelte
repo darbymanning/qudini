@@ -12,11 +12,13 @@
   import {
     AddToQueueForm,
     Closed,
+    Footer,
     Header,
     InQueue,
     JoinQueueAgain,
   } from "$components";
 
+  export let base;
   export let kioskId;
   export let products;
   export let state;
@@ -61,6 +63,8 @@
 {#if state.inQueue}
   <InQueue bind:state {...state} {...text.confirmationScreen} {kioskId} />
 {/if}
+
+<Footer {...base.logo} />
 
 <style lang="scss">
   .header {
