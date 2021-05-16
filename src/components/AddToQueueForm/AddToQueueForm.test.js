@@ -25,8 +25,7 @@ describe("AddToQueueForm", () => {
       showJoinAgain: false,
       showJoinAgain: false,
       text: {
-        customerScreen: { placeholder: {} },
-        serviceScreen: { header: "Custom Title" },
+        addToQueueForm: { header: "Custom Title" },
       },
     };
     const { getByText } = render(AddToQueueForm, data);
@@ -40,8 +39,7 @@ describe("AddToQueueForm", () => {
       state: {},
       showJoinAgain: false,
       text: {
-        customerScreen: { placeholder: { name: "Custom Name" } },
-        serviceScreen: {},
+        addToQueueForm: { name: "Custom Name" },
       },
     };
     const { getByText } = render(AddToQueueForm, data);
@@ -55,8 +53,7 @@ describe("AddToQueueForm", () => {
       state: {},
       showJoinAgain: false,
       text: {
-        customerScreen: { placeholder: { orderNumber: "Custom Order Number" } },
-        serviceScreen: {},
+        addToQueueForm: { orderNumber: "Custom Order Number" },
       },
     };
     const { getByText } = render(AddToQueueForm, data);
@@ -70,10 +67,7 @@ describe("AddToQueueForm", () => {
       state: {},
       showJoinAgain: false,
       text: {
-        customerScreen: {
-          placeholder: { mobileNumber: "Custom Mobile Number" },
-        },
-        serviceScreen: {},
+        addToQueueForm: { mobileNumber: "Custom Mobile Number" },
       },
     };
     const { getByText } = render(AddToQueueForm, data);
@@ -89,7 +83,7 @@ describe("AddToQueueForm", () => {
       settingsForPostData: {},
       state: {},
       showJoinAgain: false,
-      text: { customerScreen: { placeholder: {} }, serviceScreen: {} },
+      text: { addToQueueForm: {} },
     };
     const { getByText } = render(AddToQueueForm, data);
     expect(getByText("Product A")).toBeInTheDocument();
@@ -105,7 +99,7 @@ describe("AddToQueueForm", () => {
       settingsForPostData: {},
       state: {},
       showJoinAgain: false,
-      text: { customerScreen: { placeholder: {} }, serviceScreen: {} },
+      text: { addToQueueForm: {} },
     };
 
     beforeEach(async () => {

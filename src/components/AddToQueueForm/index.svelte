@@ -47,7 +47,7 @@
   bind:this={form}
 >
   <fieldset>
-    <h2 class="u-signPost">{text.serviceScreen.header}</h2>
+    <h2 class="u-signPost">{text.addToQueueForm.header}</h2>
     {#each products as { name, id }}
       <Radio bind:group={formData.productId} name="product" value={id}>
         {name}
@@ -56,15 +56,15 @@
   </fieldset>
 
   <Input name="name" required bind:value={formData.name}>
-    {text.customerScreen.placeholder.name}
+    {text.addToQueueForm.name}
   </Input>
 
   <Input name="orderNumber" required bind:value={formData.orderNumber}>
-    {text.customerScreen.placeholder.orderNumber}
+    {text.addToQueueForm.orderNumber}
   </Input>
 
   <Tel required bind:value={formData.mobileNumber}>
-    {text.customerScreen.placeholder.mobileNumber}
+    {text.addToQueueForm.mobileNumber}
   </Tel>
 
   <Button disabled={!isValid}>Join the queue</Button>
