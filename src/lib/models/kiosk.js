@@ -1,4 +1,5 @@
 import { getData, getSettings } from "../services/kiosk";
+import baseResolver from "../resolvers/base";
 import stateResolver from "../resolvers/state";
 import productsResolver from "../resolvers/products";
 import settingsForPostDataResolver from "../resolvers/settingsForPostData";
@@ -13,6 +14,7 @@ export default async function ({ fetch, page }) {
   ]);
 
   const props = {
+    base: baseResolver(kioskSettings),
     kioskId,
     products: productsResolver(kioskSettings),
     settingsForPostData: settingsForPostDataResolver(kioskSettings),
