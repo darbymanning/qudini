@@ -16,6 +16,7 @@
     Header,
     InQueue,
     JoinQueueAgain,
+    QueueLengths,
   } from "$components";
 
   export let base;
@@ -25,6 +26,9 @@
   export let settingsForPostData;
   export let text;
   export let showJoinAgain = cookies.getHasCheckedIn();
+  export let queueLengths;
+
+  let formData = cookies.getFormDataFromCookies();
 
   if (state.open) {
     const currentCustomer = cookies.getCurrentCustomer();
@@ -38,6 +42,13 @@
 <svelte:head>
   <title>Qudini</title>
 </svelte:head>
+
+<QueueLengths
+  {queueLengths}
+  {kioskId}
+  {products}
+  productId={formData.productId}
+/>
 
 <Header />
 
@@ -56,6 +67,7 @@
       {settingsForPostData}
       {text}
       bind:showJoinAgain
+      bind:formData
     />
   {/if}
 {/if}

@@ -4,6 +4,7 @@ import stateResolver from "../resolvers/state";
 import productsResolver from "../resolvers/products";
 import settingsForPostDataResolver from "../resolvers/settingsForPostData";
 import textResolver from "../resolvers/text";
+import getQueueLengthsResolver from "../resolvers/getQueueLengths";
 
 export default async function ({ fetch, page }) {
   const { kioskId } = page.params;
@@ -20,6 +21,10 @@ export default async function ({ fetch, page }) {
     settingsForPostData: settingsForPostDataResolver(kioskSettings),
     state: stateResolver(kioskData),
     text: textResolver(kioskSettings),
+    queueLengths: getQueueLengthsResolver(
+      productsResolver(kioskSettings),
+      kioskData
+    ),
   };
 
   return { props };
