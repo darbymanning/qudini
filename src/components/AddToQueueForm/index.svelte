@@ -12,9 +12,9 @@
   export let state;
   export let isValid = false;
   export let showJoinAgain;
+  export let formData = cookies.getFormDataFromCookies();
 
   let form;
-  let formData = cookies.getFormDataFromCookies();
 
   $: cookies.setFormData(formData);
 
