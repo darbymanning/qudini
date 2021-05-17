@@ -5,6 +5,7 @@ import productsResolver from "../resolvers/products";
 import settingsForPostDataResolver from "../resolvers/settingsForPostData";
 import stateResolver from "../resolvers/state";
 import textResolver from "../resolvers/text";
+import getQueueLengthsResolver from "../resolvers/getQueueLengths";
 
 jest.mock("../services/kiosk");
 jest.mock("../resolvers/base");
@@ -12,6 +13,7 @@ jest.mock("../resolvers/products");
 jest.mock("../resolvers/settingsForPostData");
 jest.mock("../resolvers/state");
 jest.mock("../resolvers/text");
+jest.mock("../resolvers/getQueueLengths");
 
 describe("kiosk model", () => {
   const data = {
@@ -31,6 +33,9 @@ describe("kiosk model", () => {
     );
     stateResolver.mockReturnValue("stateResolverMockResponse");
     textResolver.mockReturnValue("textResolverMockResponse");
+    getQueueLengthsResolver.mockReturnValue(
+      "getQueueLengthsResolverMockResponse"
+    );
 
     const expected = {
       props: {
@@ -40,6 +45,7 @@ describe("kiosk model", () => {
         settingsForPostData: "settingsForPostDataResolverMockResponse",
         state: "stateResolverMockResponse",
         text: "textResolverMockResponse",
+        queueLengths: "getQueueLengthsResolverMockResponse",
       },
     };
     expect(await kiosk(data)).toEqual(expected);
@@ -54,6 +60,7 @@ describe("kiosk model", () => {
   it("calls the expected resolvers", async () => {
     getData.mockReturnValue("getDataMockResponse");
     getSettings.mockReturnValue("getSettingsMockResponse");
+    productsResolver.mockReturnValue("productsResolverMockResponse");
 
     await kiosk(data);
     expect(baseResolver).toBeCalledWith("getSettingsMockResponse");
@@ -63,5 +70,9 @@ describe("kiosk model", () => {
     );
     expect(stateResolver).toBeCalledWith("getDataMockResponse");
     expect(textResolver).toBeCalledWith("getSettingsMockResponse");
+    expect(getQueueLengthsResolver).toBeCalledWith(
+      "productsResolverMockResponse",
+      "getDataMockResponse"
+    );
   });
 });
