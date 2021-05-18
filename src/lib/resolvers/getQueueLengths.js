@@ -3,7 +3,7 @@ export default function (products, data) {
 
   data.map((queueData) => {
     const { id } = products.find(
-      (product) => product.queueId === queueData.queueId
+      (product) => product.queueId == queueData.queueId
     );
     byProductId[id] = queueData.length;
   });
