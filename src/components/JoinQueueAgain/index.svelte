@@ -21,6 +21,7 @@
   }
 
   async function resetState() {
+    if (!process.browser) return;
     cookies.removeHasCheckedIn();
     showJoinAgain = false;
     const kioskData = await getData(window.fetch, kioskId);
