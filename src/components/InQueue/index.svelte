@@ -40,6 +40,7 @@
   }
 
   async function resetState() {
+    if (!process.browser) return;
     const kioskData = await getData(window.fetch, kioskId);
     state = stateResolver(kioskData);
   }

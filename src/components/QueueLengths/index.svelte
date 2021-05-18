@@ -10,6 +10,7 @@
   setInterval(getQueueLengths, 5000);
 
   async function getQueueLengths() {
+    if (!process.browser) return;
     const res = await getData(window.fetch, kioskId);
     queueLengths = getQueueLengthsResolver(products, res);
   }
