@@ -16,26 +16,21 @@
   }
 </script>
 
-{#if queueLengths.byProductId}
-  <div>
-    <span>
-      {#if productId}
-        People in queue:
-        <strong>{queueLengths.byProductId[productId]}</strong>
-      {:else if queueLengths.allQueuesHaveSamelength}
-        People in queue:
-        <strong>{queueLengths.length}</strong>
-      {:else}
-        People in queue:
-        {#each products as product, i}
-          {i > 0 ? " / " : ""}
-          {product.name}:
-          <strong>{queueLengths.byProductId[product.id]}</strong>
-        {/each}
-      {/if}
-    </span>
-  </div>
-{/if}
+<div>
+  <span>
+    {#if productId}
+      People in queue:
+      <strong>{queueLengths[productId].length}</strong>
+    {:else}
+      People in queue:
+      {#each products as product, i}
+        {i > 0 ? " / " : ""}
+        {product.name}:
+        <strong>{queueLengths[product.id].length}</strong>
+      {/each}
+    {/if}
+  </span>
+</div>
 
 <style lang="scss">
   div {
