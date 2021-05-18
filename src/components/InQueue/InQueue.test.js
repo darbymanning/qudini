@@ -82,6 +82,7 @@ describe("InQueue", () => {
     });
 
     it("resets the app state when clicking 'Back to check-in'", async () => {
+      process.browser = true;
       data.position = null;
       getData.mockReturnValue("getDataMockResponse");
 
@@ -93,6 +94,7 @@ describe("InQueue", () => {
     });
 
     it("resets the app state after five minutes", async () => {
+      process.browser = true;
       jest.spyOn(console, "warn").mockImplementation();
       data.position = null;
       getData.mockReturnValue("getDataMockResponse");

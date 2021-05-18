@@ -41,6 +41,7 @@ describe("JoinQueueAgain", () => {
   describe("on cancellation", () => {
     it("calls the expected services & resolvers", async () => {
       getData.mockReturnValue("getDataMockResponse");
+      process.browser = true;
 
       render(JoinQueueAgain);
       await fireEvent.click(screen.getByTestId("cancel"));
