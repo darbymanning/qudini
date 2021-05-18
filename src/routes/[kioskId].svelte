@@ -43,12 +43,14 @@
   <title>Qudini</title>
 </svelte:head>
 
-<QueueLengths
-  {queueLengths}
-  {kioskId}
-  {products}
-  productId={formData.productId}
-/>
+{#if state.open}
+  <QueueLengths
+    {queueLengths}
+    {kioskId}
+    {products}
+    productId={formData.productId}
+  />
+{/if}
 
 <Header />
 
